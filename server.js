@@ -25,7 +25,7 @@ const server = http.createServer(async (req, res) => {
 
             } else {
 
-                throw new Error('Not found');
+                filepath = path.join(__dirname, 'public', '404.html')
 
             }
 
@@ -33,16 +33,16 @@ const server = http.createServer(async (req, res) => {
             res.setHeader('Content-type', 'text/html');
             res.write(data);
             res.end();
-        
+
         } else {
             throw new Error('Method not allowd');
         }
 
     } catch (error) {
-        
+
         res.writeHead(500, { 'Content-type': 'text/plain' });
         res.end('Server error:', error);
-    
+
     }
 
 
